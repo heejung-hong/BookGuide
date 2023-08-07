@@ -57,6 +57,19 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+figure {
+  border: 2px solid darkolivegreen;
+  border-radius: 10px;
+  text-align: center;
+  width: 500px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
