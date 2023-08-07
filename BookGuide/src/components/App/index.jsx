@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Gallery from '../Gallery'
+import DetailsPage from '../DetailsPage'
 import'./styles.css'
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
     <>
       <h1>BookGuide</h1>
       <Gallery books={books} />
+      {books.length > 0 ? <DetailsPage {...books[1]} /> : null }
     </>
   
   )
