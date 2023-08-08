@@ -10,12 +10,21 @@ export default function SearchPage(props) {
   async function getData(url) {
     const res = await fetch(url)
     const { results } = await res.json() // curly destructure JSON response
+
+    if (prevQuery === query) {
+      setQueryResults([...queryResults, ...results])
+      resetPageCount(false)
+    } else {
+      setQueryResults(results)
+      setPrevQuery(query)
+      resetPageCount(true)
+    }
   }
 
   function handleQuerySubmit(event) {
     event.preventDefault()
 
-    getData(`https://api.nytimes.com/svc/books/v3/${query}/lists/.json?api-key=${import.meta.env.VITE_BOOK_KEY}`)
+    getData(`https://api.nytimes.com/svc/books/v3/reviews.json?author=${query}&api-key=${import.meta.env.VITE_BOOK_KEY}`)
   }
 
 
