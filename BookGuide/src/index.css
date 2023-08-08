@@ -68,6 +68,7 @@ figure {
   border-radius: 10px;
   text-align: center;
   width: 500px;
+  cursor: pointer;
 }
 
 @media (prefers-color-scheme: light) {

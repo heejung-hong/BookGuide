@@ -1,15 +1,22 @@
+import { useEffect } from "react"
 
+export default function DetailsPage(props) {
+  console.log(props)
 
-export default function DetailsPage({ title, author, book_uri, description, book_image, buy_links }) {
-
+  
   return (
-    <div>
-      <h1>" {title} " by {author}</h1>
-      {/* <h2>NYT Link: {book_uri}</h2> */}
-      <h2>Description: {description}</h2>
-      <img src="{book_image}" alt="{title} book cover" />
-      <h2>Buy Links</h2>
-      {/* <h2>{buy_links}</h2> */}
-    </div>
+    <>
+      
+      <div>
+        <h1>" {props.title} " by {props.author}</h1>
+        <h2>Description: {props.description}</h2>
+        <img src={props.book_image} alt="book cover" />
+        <h2></h2>
+        <a href={props.amazon_product_url}>Amazon Product Link</a>
+        <h2>Buy Links</h2>
+        <h2>{props.buy_links.name} : {props.buy_links.url}</h2>
+        
+      </div>
+    </>
   )
 }
