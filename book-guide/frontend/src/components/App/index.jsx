@@ -17,8 +17,9 @@ export default function App() {
   async function getData(url) {
     const res = await fetch(url)
     const { results } = await res.json() // curly destructure JSON response
-    setBooks([...books, ...results.books])
     console.log(results)
+    setBooks([...books, ...results.books])
+    
   }
 
   // query the API
@@ -26,8 +27,8 @@ export default function App() {
     getData(`https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${import.meta.env.VITE_BOOK_KEY}`)
   }, [])
 
-  // if (books > 0) {console.log(books)
-  // } else {console.log(books.books)}
+  if (books > 0) {console.log(books)
+  } else {console.log(books.books)}
 
   return (
     <>

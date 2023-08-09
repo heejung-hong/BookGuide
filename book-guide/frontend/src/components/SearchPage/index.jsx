@@ -1,7 +1,7 @@
 import { useState } from "react"
-import Gallery from "../Gallery"
+// import Gallery from "../Gallery"
 
-export default function SearchPage(props) {
+export default function SearchPage(reviews) {
 
   const [query, setQuery] = useState('')
   const [prevQuery, setPrevQuery] = useState('')
@@ -10,14 +10,15 @@ export default function SearchPage(props) {
   async function getData(url) {
     const res = await fetch(url)
     const { results } = await res.json() // curly destructure JSON response
+    console.log(results)
 
     if (prevQuery === query) {
       setQueryResults([...queryResults, ...results])
-      resetPageCount(false)
+      // resetPageCount(false)
     } else {
       setQueryResults(results)
       setPrevQuery(query)
-      resetPageCount(true)
+      // resetPageCount(true)
     }
   }
 
@@ -27,31 +28,42 @@ export default function SearchPage(props) {
     getData(`https://api.nytimes.com/svc/books/v3/reviews.json?author=${query}&api-key=${import.meta.env.VITE_BOOK_KEY}`)
   }
 
-
+  let reviewContent = <p>Your book is loading...</p>
+  // i is index.  react need unique key.
+  if (reviews.length > 0) {
+    reviewContent = reviews
+      .map(review => {
+        return <Card key={review.book_author} reviewResults={review} />
+      })
+  }
+ 
   return (
     <>
       <div>
         <form onSubmit={handleQuerySubmit}>
           <label htmlFor="search">
-            <h1>Search Page</h1>
+            <h1>Reviews by Author</h1>
           </label>
           <br />
           <input 
             name="search"
-            placeholder="enter Author's name..."
+            placeholder="enter author's name..."
             value={query}
             onChange={event => setQuery(event.target.value)}
           />
           <button type="submit">
             Search
           </button>
-        </form>
+        </form> 
 
-        <Gallery
-          books={queryResults}
-          updateDetails={props.setDetailsData}
-        />
-      </div>      
+      </div>  
+      <div>
+        <h2>{reviewContent.book_author}</h2>
+        <h2>{reviewContent.book_title}</h2>
+        <h2>{reviewContent.summary}</h2>
+        <h2>{reviewContent.url}</h2>
+
+      </div>    
     </>  
   )
 }

@@ -6,7 +6,7 @@ const commentSchema = new mongoose.Schema(
     {
         name: { type: String, required: true },
         content: { type: String, required: true },
-
+        bookId: { type: Number, required: true }
     },
     { timestamps: true }
 );
