@@ -72,37 +72,45 @@ console.log(bookId)
     }
 
     return (
-        <div>
-            <h1>Viewer Insights</h1>
-            <button className="ui teal basic button"
-                onClick={toggleCreateForm}
-            >
-                {btnText}
-            </button>
-            {
-                showCreateForm && <form
-                    onSubmit={handleSubmit}>
-                    <input
-                        name="name"
-                        placeholder="Your name"
-                        value={createFormData.name}
-                        onChange={handleInputChange}
-                    />
-                    <br />
-                    <textarea
-                        name="content"
-                        placeholder="Share your thoughts!"
-                        value={createFormData.content}
-                        onChange={handleInputChange}
-                    />
-                    <button className="ui teal basic button"
-                        type="submit"
-                    >
-                        Post
-                    </button>
-                </form>
-            }
-            {commentElements}
-        </div>
+        <section>
+            <div className="ui container">
+                <div>
+                <h1>Viewer Insights</h1>
+                <div>
+                <button className="ui purple basic button"
+                    onClick={toggleCreateForm}
+                >
+                    {btnText}
+                </button>
+                </div>
+                {
+                    showCreateForm && <form className="ui form"
+                        onSubmit={handleSubmit}>
+                        <input
+                            name="name"
+                            placeholder="Your name here."
+                            value={createFormData.name}
+                            onChange={handleInputChange}
+                        />
+                        <br />
+                        <textarea
+                            name="content"
+                            placeholder="Share your thoughts on this book!"
+                            value={createFormData.content}
+                            onChange={handleInputChange}
+                        />
+                        <div>
+                        <button className="ui teal basic button"
+                            type="submit"
+                        >
+                            Post
+                        </button>
+                        </div>
+                    </form>
+                }
+                {commentElements}
+                </div>
+            </div>
+        </section>
     )
 }

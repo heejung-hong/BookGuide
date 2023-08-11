@@ -36,18 +36,22 @@ export default function Comment({ data, refreshComments }) {
     }
 
     //  Default JSX of each comment
-    let commentElement = <div>
-        <p>{data.name}</p>
-        <p>{data.content}</p>
+    let commentElement = <div className="ui comments">
+        <div className="comment">
+            <div className="content">
+        <p className="author">{data.name}</p>
+        <p className="text">{data.content}</p>
+        </div>
+        </div>
         <div>
-            <button className="ui teal basic button" onClick={() => { setShowEditForm(true) }}>Edit</button>
+            <button className="ui pink basic button" onClick={() => { setShowEditForm(true) }}>Edit</button>
             <button className="ui teal basic button" onClick={handleDelete}>Delete</button>
         </div>
     </div>
 
     // Change the comment to a form if the showEditForm state variable is true
     if (showEditForm) {
-        commentElement = <form
+        commentElement = <form className="ui form"
             onSubmit={handleSubmit}
             >
             <input
@@ -64,7 +68,7 @@ export default function Comment({ data, refreshComments }) {
                 onChange={handleInputChange}
             />
             <div>
-                <button className="ui teal basic button" onClick={() => { setShowEditForm(false) }}>Close</button>
+                <button className="ui pink basic button" onClick={() => { setShowEditForm(false) }}>Close</button>
                 <button className="ui teal basic button" type="submit">Post</button>
             </div>
         </form>

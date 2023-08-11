@@ -14,9 +14,13 @@ export default function Gallery ({ books, url, updateDetails }) {
   }
 
   return (
-    <div >
-      {galleryContent}
-
-    </div>
+    <>
+    
+      <div className="gallery">
+      <div className="column">
+        {galleryContent}
+      </div>
+      </div>
+    </>
   )
 }

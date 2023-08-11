@@ -1,5 +1,4 @@
 import { useState } from "react"
-// import Gallery from "../Gallery"
 
 export default function SearchPage(reviews) {
 
@@ -40,7 +39,7 @@ export default function SearchPage(reviews) {
  
   return (
     <>
-      <div>
+      <div className="search">
         <form onSubmit={handleQuerySubmit}>
           <label htmlFor="search">
             <h1>Reviews by Author's Name</h1>

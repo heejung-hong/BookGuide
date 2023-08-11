@@ -32,15 +32,16 @@ export default function App() {
   return (
     <>
     
-    <div className="ui fixed main menu">
-        <div className="ui container">
-        <div className="active item">
+    <nav className="ui top fixed nav">
+      <div className="ui container">
+        <div className="ui secondary menu">
+        <div className="link item">
           <Link to="/">
             <h2>Book Guide</h2>
           </Link>
         </div>
         <div className="right menu">
-          <div className="item">
+          <div className="link item">
             
               <Link to="/search">
                 <h4>NYT Reviews</h4>
@@ -49,12 +50,8 @@ export default function App() {
           </div> 
         </div>
         </div>
-      </div>
-      <div className="gallery">
-      <div className="ui main container">
-      <div className="ui grid">
-      <div className="three column row">
-        <div className="column">
+        </div>
+      </nav>
           
       <Routes>
         <Route path="/" element={
@@ -67,12 +64,7 @@ export default function App() {
         <Route path="/search" element={<SearchPage setDetailsData={setDetailsData} />} />
         <Route path="/details" element={<DetailsPage {...detailsData} updateDetails={setDetailsData} />} />
         <Route path="/*" element={<NotFoundPage />} />
-      </Routes>
-      </div> 
-      </div>
-          </div>     
-          </div>
-          </div> 
+      </Routes> 
     </>
   
   )
