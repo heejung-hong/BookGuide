@@ -36,24 +36,33 @@ export default function SearchPage(reviews) {
         return <Card key={review.book_author} reviewResults={review} />
       })
   }
+  console.log()
  
   return (
     <>
       <div>
         <form onSubmit={handleQuerySubmit}>
           <label htmlFor="search">
-            <h1>Reviews by Author</h1>
+            <h1>Reviews by Author's Name</h1>
           </label>
           <br />
-          <input 
+          <div className="ui search">
+          <div className="ui icon input">
+          <input
+            className="prompt" 
             name="search"
             placeholder="enter author's name..."
             value={query}
             onChange={event => setQuery(event.target.value)}
           />
-          <button type="submit">
+          <i class="search icon"></i>
+          
+          </div>
+          <button className="ui teal basic button" type="submit">
             Search
           </button>
+          </div>
+          
         </form> 
 
       </div>  

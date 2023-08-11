@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, Link } from "react-router-dom"
-// import Gallery from '../Gallery'
 import HomePage from '../HomePage'
 import DetailsPage from '../DetailsPage'
 import SearchPage from '../SearchPage'
@@ -32,23 +31,31 @@ export default function App() {
 
   return (
     <>
-      <nav>
-        <div>
+    
+    <div className="ui fixed main menu">
+        <div className="ui container">
+        <div className="active item">
           <Link to="/">
             <h2>Book Guide</h2>
           </Link>
         </div>
-        <div>
-          <ul>
-            <li>
+        <div className="right menu">
+          <div className="item">
+            
               <Link to="/search">
-                <h4>Search</h4>
+                <h4>NYT Reviews</h4>
               </Link>
-            </li>
-          </ul>
+            
+          </div> 
         </div>
-      </nav>
-
+        </div>
+      </div>
+      <div className="gallery">
+      <div className="ui main container">
+      <div className="ui grid">
+      <div className="three column row">
+        <div className="column">
+          
       <Routes>
         <Route path="/" element={
           <HomePage
@@ -61,7 +68,11 @@ export default function App() {
         <Route path="/details" element={<DetailsPage {...detailsData} updateDetails={setDetailsData} />} />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
-
+      </div> 
+      </div>
+          </div>     
+          </div>
+          </div> 
     </>
   
   )

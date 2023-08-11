@@ -74,7 +74,7 @@ console.log(bookId)
     return (
         <div>
             <h1>Viewer Insights</h1>
-            <button
+            <button className="ui teal basic button"
                 onClick={toggleCreateForm}
             >
                 {btnText}
@@ -95,7 +95,7 @@ console.log(bookId)
                         value={createFormData.content}
                         onChange={handleInputChange}
                     />
-                    <button
+                    <button className="ui teal basic button"
                         type="submit"
                     >
                         Post
