@@ -1,6 +1,6 @@
 import { useState } from "react"
 // useState to keep user on the same page
-// import Gallery from "../Gallery";
+import Gallery from "../Gallery";
 
 
 export default function SearchPage({ reviewData }) {
@@ -68,8 +68,8 @@ export default function SearchPage({ reviewData }) {
       </div>
       <div>
       {/* {queryResults.length > 0 ? <p>{queryResults[0].book_author}</p> : <p>The review is loading...</p>} */}
-      {/* <h2>{reviewData.book_author}</h2> */}
-
+      {/* <h2>{reviewData.book_author}</h2>
+      <h2>{reviewData.book_title}</h2> */}
       </div>
     </>  
   )
