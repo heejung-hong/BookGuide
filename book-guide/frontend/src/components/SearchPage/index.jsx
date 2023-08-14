@@ -8,7 +8,6 @@ export default function SearchPage(props) {
   const [prevQuery, setPrevQuery] = useState('') // Tell the gallery component if it needs to resest its page count after new search submitted
   const [queryResults, setQueryResults] = useState([]) // caputure results from API
   
-
   async function getData(url) {
     const res = await fetch(url)
     const { results } = await res.json() // curly destructure JSON response
@@ -30,8 +29,6 @@ export default function SearchPage(props) {
     
   }
 
-  // {queryResults.length > 0 ? <p>{queryResults[0].book_author}</p> : <p>The review is loading...</p>}
-
   let reviewContent = <p>The review is loading...</p>
 
   if (queryResults.length > 0) {
@@ -40,7 +37,6 @@ export default function SearchPage(props) {
       
   }
 
-  
   return (
     <>
       <div className="gallery">
@@ -68,7 +64,7 @@ export default function SearchPage(props) {
         </form> 
       </div>
       <div>
-      {queryResults.length > 0 ? queryResults.map(review => <ReviewCard key={review.book_author} reviewData={review} /> ) : <p>The review is loading...</p>}
+        {reviewContent}
       </div>
     </>  
   )
