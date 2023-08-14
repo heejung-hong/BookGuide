@@ -15,11 +15,6 @@ const db = require('./models');
 --------------------------------------------------------------- */
 const commentsCtrl = require('./controllers/comments')
 
-
-// use the React build folder for static files
-app.use(express.static(path.join(path.dirname(__dirname), 'frontend', 'dist')))
-
-
 /* Create the Express app
 ---------------------------------------------------------- */
 const app = express();
@@ -31,6 +26,11 @@ app.use(cors())
 // body parser - used for POST/PUT/PATCH routes:
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
+
+
+// use the React build folder for static files
+app.use(express.static(path.join(path.dirname(__dirname), 'frontend', 'dist')))
+
 
 /* Mount routes
 ---------------------------------------------------------- */
