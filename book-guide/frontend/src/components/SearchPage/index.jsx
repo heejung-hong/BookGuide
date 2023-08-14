@@ -1,51 +1,44 @@
 import { useState } from "react"
+// useState to keep user on the same page
+// import Gallery from "../Gallery";
 
-export default function SearchPage(reviews) {
 
-  const [query, setQuery] = useState('')
-  const [prevQuery, setPrevQuery] = useState('')
-  const [queryResults, setQueryResults] = useState([])
+export default function SearchPage() {
+  const [query, setQuery] = useState('') // query saves whatever user enters in search bar
+  const [prevQuery, setPrevQuery] = useState('') // Tell the gallery component if it needs to resest its page count after new search submitted
+  const [queryResults, setQueryResults] = useState([]) // caputure results from API
+
 
   async function getData(url) {
     const res = await fetch(url)
     const { results } = await res.json() // curly destructure JSON response
-    console.log(results)
-
+      console.log(results)
     if (prevQuery === query) {
       setQueryResults([...queryResults, ...results])
-      // resetPageCount(false)
     } else {
       setQueryResults(results)
       setPrevQuery(query)
-      // resetPageCount(true)
     }
+    console.log(results[0].book_title)
   }
 
   function handleQuerySubmit(event) {
-    event.preventDefault()
-
+    event.preventDefault() // prevent the page from reloading
+      console.log(query)
+    setQueryResults(prevResults => prevResults = []) // clears previous query's data
     getData(`https://api.nytimes.com/svc/books/v3/reviews.json?author=${query}&api-key=${import.meta.env.VITE_BOOK_KEY}`)
+    
   }
-
-  let reviewContent = <p>Your book is loading...</p>
-  // i is index.  react need unique key.
-  if (reviews.length > 0) {
-    reviewContent = reviews
-      .map(review => {
-        return <Card key={review.book_author} reviewResults={review} />
-      })
-  }
-  console.log()
  
   return (
     <>
-      <div className="search">
+      <div className="gallery">
         <form onSubmit={handleQuerySubmit}>
           <label htmlFor="search">
             <h1>Reviews by Author's Name</h1>
           </label>
           <br />
-          <div className="ui search">
+          <div className="ui gallery">
           <div className="ui icon input">
           <input
             className="prompt" 
@@ -54,24 +47,20 @@ export default function SearchPage(reviews) {
             value={query}
             onChange={event => setQuery(event.target.value)}
           />
-          <i class="search icon"></i>
-          
+          {/* onchange initiates the handleQuerySubmit function */}
+          <i className="search icon"></i>          
           </div>
           <button className="ui teal basic button" type="submit">
             Search
           </button>
-          </div>
-          
+          </div>          
         </form> 
-
-      </div>  
+      </div>
       <div>
-        <h2>{reviewContent.book_author}</h2>
-        <h2>{reviewContent.book_title}</h2>
-        <h2>{reviewContent.summary}</h2>
-        <h2>{reviewContent.url}</h2>
+      {queryResults.length > 0 ? <p>{queryResults[0].book_author}</p> : <p>The review is loading...</p>}
+      </div>
+      
 
-      </div>    
     </>  
   )
 }

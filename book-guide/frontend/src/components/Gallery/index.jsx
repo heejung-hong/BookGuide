@@ -17,9 +17,12 @@ export default function Gallery ({ books, url, updateDetails }) {
     <>
     
       <div className="gallery">
-      <div className="column">
+        
+        <div className="ui three column grid">
         {galleryContent}
-      </div>
+      
+        </div>
+      
       </div>
     </>
   )

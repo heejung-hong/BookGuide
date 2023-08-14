@@ -66,7 +66,7 @@ console.log(bookId)
     }
 
     // conditionally display the text of the create form button
-    let btnText = 'Create'
+    let btnText = 'Comment'
     if (showCreateForm) {
         btnText = 'Close'
     }
@@ -75,16 +75,18 @@ console.log(bookId)
         <section>
             <div className="ui container">
                 <div>
-                <h1>Viewer Insights</h1>
+                <div class="ui horizontal divider"><h3>Reader Insights</h3></div>
                 <div>
-                <button className="ui purple basic button"
+                <button 
+                    className="ui purple basic button"
                     onClick={toggleCreateForm}
                 >
                     {btnText}
                 </button>
                 </div>
                 {
-                    showCreateForm && <form className="ui form"
+                    showCreateForm && <form 
+                        className="ui form"
                         onSubmit={handleSubmit}>
                         <input
                             name="name"
@@ -100,7 +102,8 @@ console.log(bookId)
                             onChange={handleInputChange}
                         />
                         <div>
-                        <button className="ui teal basic button"
+                        <button 
+                            className="ui teal basic button"
                             type="submit"
                         >
                             Post

@@ -16,9 +16,7 @@ export default function App() {
   async function getData(url) {
     const res = await fetch(url)
     const { results } = await res.json() // curly destructure JSON response
-    console.log(results)
     setBooks([...books, ...results.books])
-    
   }
 
   // query the API
@@ -44,7 +42,7 @@ export default function App() {
           <div className="link item">
             
               <Link to="/search">
-                <h4>NYT Reviews</h4>
+                <h2>Reviews</h2>
               </Link>
             
           </div> 
@@ -52,7 +50,7 @@ export default function App() {
         </div>
         </div>
       </nav>
-          
+          <br />
       <Routes>
         <Route path="/" element={
           <HomePage

@@ -15,25 +15,29 @@ export default function DetailsPage(props) {
   if (props.primary_isbn13) {
     return (
       <>
-        <section>
+        <div>
           <div className="ui container">
             <div className="ui grid">
-              <div className="ten wide column">
-                <h2>" {props.title} " by {props.author}</h2>
-                <h3>Description: {props.description}</h3>
-                <img src={props.book_image} alt="book cover" />
-                <h2></h2>
-                <a href={props.amazon_product_url}>Amazon Product Link</a>
-                <h3>Buy Links</h3>
-                {/* <h2>{props.buy_links.name} : {props.buy_links.url}</h2> */}
+              <div className="nine wide column">
+                <br />
+                <div class="ui horizontal divider"><h3>" {props.title} "</h3></div>
+                <h2 class="ui horizontal divider"> by {props.author}</h2>
+                <h2 >Description: <h4>{props.description}</h4></h2>                
+                <h2 class="ui horizontal divider header"><a href={props.amazon_product_url}>Buy on Amazon</a></h2>
+                <br />
+                <div>
+                  <img src={props.book_image} alt="book cover" />
+                </div>
                 
               </div>
+              <div className="one wide column"></div>
               <div className="six wide column">
+                <br />
                 <CommentSection bookId={props.primary_isbn13} />
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </>
     )
   } else {
