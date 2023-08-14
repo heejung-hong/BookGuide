@@ -16,10 +16,13 @@ const db = require('./models');
 const commentsCtrl = require('./controllers/comments')
 
 
+// use the React build folder for static files
+app.use(express.static(path.join(path.dirname(__dirname), 'frontend', 'dist')))
+
+
 /* Create the Express app
 ---------------------------------------------------------- */
 const app = express();
-
 
 /* Middleware (app.use)
 ---------------------------------------------------------- */
@@ -29,12 +32,17 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 
-
 /* Mount routes
 ---------------------------------------------------------- */
 // This tells our app to look at the `controllers/comments.js` file 
 // to handle all routes that begin with `localhost:3000/api/comments`
 app.use('/api/comments', commentsCtrl)
+
+
+// Any other route not matching the routes above gets routed by React
+app.get('*', (req, res) => {
+    res.sendFile(path.join(path.dirname(__dirname), 'frontend', 'dist', 'index.html'));
+});
 
 
 /* Tell the app to listen on the specified port

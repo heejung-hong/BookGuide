@@ -3,7 +3,7 @@ import { useState } from "react"
 // import Gallery from "../Gallery";
 
 
-export default function SearchPage() {
+export default function SearchPage({ reviewData }) {
   const [query, setQuery] = useState('') // query saves whatever user enters in search bar
   const [prevQuery, setPrevQuery] = useState('') // Tell the gallery component if it needs to resest its page count after new search submitted
   const [queryResults, setQueryResults] = useState([]) // caputure results from API
@@ -29,7 +29,17 @@ export default function SearchPage() {
     getData(`https://api.nytimes.com/svc/books/v3/reviews.json?author=${query}&api-key=${import.meta.env.VITE_BOOK_KEY}`)
     
   }
- 
+
+  // {queryResults.length > 0 ? <p>{queryResults[0].book_author}</p> : <p>The review is loading...</p>}
+
+  let reviewContent = <p>The review is loading...</p>
+
+  if (queryResults.length > 0) {
+    reviewContent = queryResults
+      .map(queryResult => <Card key={queryResult.book_author} reviewData={queryResult} />)
+      
+  }
+
   return (
     <>
       <div className="gallery">
@@ -57,10 +67,10 @@ export default function SearchPage() {
         </form> 
       </div>
       <div>
-      {queryResults.length > 0 ? <p>{queryResults[0].book_author}</p> : <p>The review is loading...</p>}
-      </div>
-      
+      {/* {queryResults.length > 0 ? <p>{queryResults[0].book_author}</p> : <p>The review is loading...</p>} */}
+      {/* <h2>{reviewData.book_author}</h2> */}
 
+      </div>
     </>  
   )
 }
