@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "../Card";
 
-export default function Gallery ({ books, url, updateDetails }) {
+export default function Gallery ({ books, refreshQueue, url, updateDetails }) {
   // send updateDetails info to each Card in if statement
   // bookResults from Card prop
   let galleryContent = <p>Your book is loading...</p>
@@ -12,6 +12,8 @@ export default function Gallery ({ books, url, updateDetails }) {
         return <Card key={book.primary_isbn13} bookResults={book} updateDetails={updateDetails} />
       })
   }
+
+
 
   return (
     <>

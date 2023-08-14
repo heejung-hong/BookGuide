@@ -1,13 +1,13 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 // useState to keep user on the same page
-import Gallery from "../Gallery";
+import ReviewCard from "../ReviewCard";
+// import Card from "../Card"
 
-
-export default function SearchPage({ reviewData }) {
+export default function SearchPage(props) {
   const [query, setQuery] = useState('') // query saves whatever user enters in search bar
   const [prevQuery, setPrevQuery] = useState('') // Tell the gallery component if it needs to resest its page count after new search submitted
   const [queryResults, setQueryResults] = useState([]) // caputure results from API
-
+  
 
   async function getData(url) {
     const res = await fetch(url)
@@ -36,10 +36,11 @@ export default function SearchPage({ reviewData }) {
 
   if (queryResults.length > 0) {
     reviewContent = queryResults
-      .map(queryResult => <Card key={queryResult.book_author} reviewData={queryResult} />)
+      .map(queryResult => <ReviewCard key={queryResult.book_author} reviewData={queryResult} />)
       
   }
 
+  
   return (
     <>
       <div className="gallery">
@@ -67,9 +68,7 @@ export default function SearchPage({ reviewData }) {
         </form> 
       </div>
       <div>
-      {/* {queryResults.length > 0 ? <p>{queryResults[0].book_author}</p> : <p>The review is loading...</p>} */}
-      {/* <h2>{reviewData.book_author}</h2>
-      <h2>{reviewData.book_title}</h2> */}
+      {queryResults.length > 0 ? queryResults.map(review => <ReviewCard key={review.book_author} reviewData={review} /> ) : <p>The review is loading...</p>}
       </div>
     </>  
   )
