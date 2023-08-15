@@ -13,18 +13,12 @@ export default function Gallery ({ books, refreshQueue, url, updateDetails }) {
       })
   }
 
-
-
   return (
-    <>
-    
-      <div className="gallery">
-        
+    <>    
+      <div className="gallery">        
         <div className="ui three column grid">
-        {galleryContent}
-      
-        </div>
-      
+        {galleryContent}      
+        </div>      
       </div>
     </>
   )

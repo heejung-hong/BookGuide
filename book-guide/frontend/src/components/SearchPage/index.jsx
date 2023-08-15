@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react"
-// useState to keep user on the same page
 import ReviewCard from "../ReviewCard";
-// import Card from "../Card"
 
 export default function SearchPage(props) {
   const [query, setQuery] = useState('') // query saves whatever user enters in search bar
@@ -29,7 +27,7 @@ export default function SearchPage(props) {
     
   }
 
-  let reviewContent = <p>The review is loading...</p>
+  let reviewContent = <p className="gallery">The review is loading...</p>
 
   if (queryResults.length > 0) {
     reviewContent = queryResults
@@ -45,26 +43,30 @@ export default function SearchPage(props) {
             <h1>Reviews by Author's Name</h1>
           </label>
           <br />
+          <br />
           <div className="ui gallery">
-          <div className="ui icon input">
-          <input
-            className="prompt" 
-            name="search"
-            placeholder="enter author's name..."
-            value={query}
-            onChange={event => setQuery(event.target.value)}
-          />
-          {/* onchange initiates the handleQuerySubmit function */}
-          <i className="search icon"></i>          
-          </div>
-          <button className="ui teal basic button" type="submit">
-            Search
-          </button>
+            <div className="ui icon input">
+              <input
+                className="prompt" 
+                name="search"
+                placeholder="enter author's name..."
+                value={query}
+                onChange={event => setQuery(event.target.value)}
+              />
+              <i className="search icon"></i>          
+            </div>
+            <button className="ui teal basic button" type="submit">
+              Search
+            </button>
           </div>          
         </form> 
       </div>
-      <div>
-        {reviewContent}
+      <br />
+      <br />
+      <div className="">
+        <div className="ui container">
+          {reviewContent}
+        </div>        
       </div>
     </>  
   )

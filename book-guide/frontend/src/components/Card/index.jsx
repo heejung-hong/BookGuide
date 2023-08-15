@@ -4,12 +4,9 @@ import { Link } from "react-router-dom"
 export default function Card({ bookResults, updateDetails }) {
 // in curly destruturing prop so that data from API can be used without the word props below
   return (
-    <>
-      
-        <div className="column">
-          
-          <div className="ui fluid card">
-          
+    <>      
+      <div className="column">          
+        <div className="ui fluid card">          
           <div className="card">
             <Link
               to={"/details"}
@@ -17,7 +14,8 @@ export default function Card({ bookResults, updateDetails }) {
             >
               <div className="content">
                 <br />
-                <div className="center aligned header">" {bookResults.title} "</div>
+                <div className="center aligned header"><b>" {bookResults.title} "</b>
+                </div>
               </div>
               <br />
               <div className="content">
@@ -26,21 +24,21 @@ export default function Card({ bookResults, updateDetails }) {
                   <div className="event">
                     <div className="content">
                       <div className="center aligned summary">
-                        <a>Rank last week: </a><a>{bookResults.rank_last_week}</a>
+                        <p>Rank last week : {bookResults.rank_last_week}</p>
                       </div>
                     </div>
                   </div>
                   <div className="event">
                     <div className="content">
                       <div className="center aligned summary">
-                        <a>Weeks on List: </a><a>{bookResults.weeks_on_list}</a>
+                        <p>Weeks on List : {bookResults.weeks_on_list}</p>
                       </div>
                     </div>
                   </div>
                   <div className="event">
                     <div className="content">
                       <div className="center aligned summary">
-                        <a>Author: </a><a>{bookResults.author}</a>
+                        <p>Author : {bookResults.author}</p>
                       </div>
                     </div>
                   </div>
@@ -48,9 +46,8 @@ export default function Card({ bookResults, updateDetails }) {
                 </div>
               </div>
             </Link>
-          </div>
-          
-          </div>
+          </div>          
+        </div>
       </div>
     </>  
   )
