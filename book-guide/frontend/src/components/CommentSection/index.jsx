@@ -66,7 +66,7 @@ console.log(bookId)
     }
 
     // conditionally display the text of the create form button
-    let btnText = 'Comment'
+    let btnText = 'Add a Comment'
     if (showCreateForm) {
         btnText = 'Close'
     }
@@ -74,11 +74,11 @@ console.log(bookId)
     return (
         <section>
             <div className="ui container">
-                <div>
+                <div >
                 <div class="ui horizontal divider"><h3>Reader Insights</h3></div>
                 <div>
                 <button 
-                    className="ui purple basic button"
+                    className="tiny ui primary button"
                     onClick={toggleCreateForm}
                 >
                     {btnText}
@@ -103,7 +103,7 @@ console.log(bookId)
                         />
                         <div>
                         <button 
-                            className="ui teal basic button"
+                            className="tiny ui primary button"
                             type="submit"
                         >
                             Post

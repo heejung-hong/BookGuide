@@ -43,9 +43,11 @@ export default function Comment({ data, refreshComments }) {
         <p className="text">{data.content}</p>
         </div>
         </div>
-        <div>
-            <button className="ui pink basic button" onClick={() => { setShowEditForm(true) }}>Edit</button>
-            <button className="ui teal basic button" onClick={handleDelete}>Delete</button>
+        <div style={{
+                  padding: "20px"
+                }}>
+            <button className="tiny ui primary button" onClick={() => { setShowEditForm(true) }}>Edit</button>
+            <button className="tiny ui primary button" onClick={handleDelete}>Delete</button>
         </div>
     </div>
 
@@ -67,9 +69,11 @@ export default function Comment({ data, refreshComments }) {
                 value={editFormData.content}
                 onChange={handleInputChange}
             />
-            <div>
-                <button className="ui pink basic button" onClick={() => { setShowEditForm(false) }}>Close</button>
-                <button className="ui teal basic button" type="submit">Post</button>
+            <div style={{
+                  padding: "20px"
+                }}>
+                <button className="tiny ui primary button" onClick={() => { setShowEditForm(false) }}>Close</button>
+                <button className="tiny ui primary button" type="submit">Post</button>
             </div>
         </form>
     }

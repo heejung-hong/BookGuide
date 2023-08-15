@@ -19,21 +19,32 @@ export default function DetailsPage(props) {
           <div className="ui container">
             <div className="ui grid">
               <div className="nine wide column">
-                <br />
-                <div class="ui horizontal divider"><h3>" {props.title} "</h3></div>
-                <h2 class="ui horizontal divider"> by {props.author}</h2>
-                <h2 >Description: <h4>{props.description}</h4></h2>                
-                <h2 class="ui horizontal divider header"><a href={props.amazon_product_url}>Buy on Amazon</a></h2>
-                <br />
-                <div>
-                  <img src={props.book_image} alt="book cover" />
-                </div>
-                
+                <div style={{backgroundColor: "whitesmoke"}}>
+                  <div style={{
+                  padding: "20px"
+                }}>
+                  <div class="ui horizontal divider"><h3>" {props.title} "</h3></div>
+                  <h2 class="ui horizontal divider"> by {props.author}</h2>
+                  <h2 >Description: <h4>{props.description}</h4></h2>                
+                  <h2 class="ui horizontal divider header"><a href={props.amazon_product_url}>Buy on Amazon</a></h2>
+                  <div>
+                    <img src={props.book_image} alt="book cover" className="gallery" />
+                  </div>
+                  </div>                  
+                </div>  
               </div>
               <div className="one wide column"></div>
               <div className="six wide column">
-                <br />
-                <CommentSection bookId={props.primary_isbn13} />
+                <div style={{
+                  backgroundColor: "whitesmoke"
+                }}>
+                  <div style={{
+                  padding: "20px"
+                }}>
+                  <CommentSection bookId={props.primary_isbn13} />
+                  </div>
+                  
+                </div>                
               </div>
             </div>
           </div>

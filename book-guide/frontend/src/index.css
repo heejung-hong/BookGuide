@@ -14,7 +14,7 @@ body {
   background-image: url("/daisy.png");
   background-size: "cover";
   background-position: center;
-  height: 100vh;
+  height: 80vh;
   width: auto;
 }
 
@@ -39,13 +39,13 @@ h3 {
   justify-content: space-around;
 }
 
-/* .notfound {
+.notfound {
   background-image: url("/404Page.png");
   background-size: "cover";
   background-position: center;
   height: 100vh;
   width: auto;
-} */
+}
 
 
 

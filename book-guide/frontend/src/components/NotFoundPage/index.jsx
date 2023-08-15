@@ -4,9 +4,15 @@ import { Link } from "react-router-dom"
 export default function NotFoundPage() {
   return (
     <>
-      <div className="notfound">
+      <div>
         <br />
         <br />
+        <br />
+        <br />
+        <br />
+        <div className="gallery">
+          <h1>404</h1>
+        </div>
         <br />
         <br />
         <br />
@@ -14,11 +20,13 @@ export default function NotFoundPage() {
           <h1>Page Not Found</h1>
         </div>
         <br />
+        <br />
+        <br />
         <div className="gallery">
-          <button className="ui pink basic button">
+          <button className="huge ui whitesmoke button">
             <Link to="/">Go Home</Link>
           </button>
-        </div>        
+        </div>                
       </div>     
     </>
   )

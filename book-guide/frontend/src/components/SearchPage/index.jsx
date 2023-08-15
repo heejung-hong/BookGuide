@@ -27,7 +27,7 @@ export default function SearchPage(props) {
     
   }
 
-  let reviewContent = <p className="gallery">The review is loading...</p>
+  let reviewContent = <h2 className="gallery">The review is loading...</h2>
 
   if (queryResults.length > 0) {
     reviewContent = queryResults
@@ -55,7 +55,7 @@ export default function SearchPage(props) {
               />
               <i className="search icon"></i>          
             </div>
-            <button className="ui teal basic button" type="submit">
+            <button className="ui whitesmoke button" type="submit">
               Search
             </button>
           </div>          
