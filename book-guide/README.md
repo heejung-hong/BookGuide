@@ -16,6 +16,7 @@ Readers can also use the Reviews link to see the books reviewed by The New York 
   - React
   - Node.js
   - SemanticUI
+  - Adobe Fresco
 
 4. Installation instructions
   - Fork this repository
@@ -36,7 +37,6 @@ Readers can also use the Reviews link to see the books reviewed by The New York 
 
 7. Unsolved problems or major hurdles
   - Trying to style components imported into other components has been difficult.
-  - I couldn't get the 404 background image positioned the way I wanted so I removed it.
 
 8. Next Steps
   - I think I would remove Semantic UI and use Tailwind for styling and use Adobe Fresco to redesign the background image.

@@ -62,9 +62,9 @@ export default function SearchPage(props) {
         </form> 
       </div>
       <br />
-      <br />
-      <div className="">
-        <div className="ui container">
+      <br />      
+      <div className="ui container">
+        <div className="">
           {reviewContent}
         </div>        
       </div>
